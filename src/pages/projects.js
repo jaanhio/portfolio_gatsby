@@ -1,13 +1,68 @@
 import React from 'react';
 import styled from 'styled-components';
 import Footer from '../components/Footer';
+import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
 
-const Projects = () => (
-  <div>
-    <p>test</p>
-    <p>Vivamus suscipit nibh sed diam pellentesque, nec blandit sapien fringilla. Quisque ante ex, iaculis eget est quis, fermentum lobortis arcu. Phasellus eget varius neque, eu imperdiet sem. Suspendisse iaculis ante in metus elementum mollis. Sed sed erat in urna tincidunt tempor eu sit amet mi. Quisque vestibulum tincidunt eros, auctor volutpat eros varius vitae. Fusce risus sapien, ornare quis viverra ut, mattis in ligula. Sed mollis magna et facilisis bibendum. Sed quis gravida lorem. Cras blandit dolor magna, a fermentum nisi rhoncus nec. Donec eget cursus lorem, vitae convallis nisl. Vivamus a magna eu sapien semper tincidunt vitae a metus. Mauris nec fringilla nulla.</p>
-    <Footer />
-  </div>
+import WeatherCastShot from '../weathercast.png';
+import YoutubeLiveShot from '../youtube-live-search.png';
+
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+const projects = [
+  {
+    img: WeatherCastShot,
+    title: '5-day Weather Forecast',
+    subtitle: '',
+    text: 'A 5 day weather forecast search app built using React and OpenWeatherAPI',
+    link: 'https://weathercasters.herokuapp.com/',
+  },
+  {
+    img: YoutubeLiveShot,
+    title: 'Youtube Live Search',
+    subtitle: '',
+    text: 'A Youtube Live search app built using React and Youtube Data API.',
+    link: 'https://youtube-live-search.herokuapp.com/',
+  },
+]
+
+const cardStyle = {
+  marginTop: 20,
+  paddingBottom: 10,
+}
+
+const renderedProject = projects.map((project, index) => {
+  console.log(project.img);
+  return(
+    <Card style={cardStyle} key={index}>
+      <CardMedia style={{ borderBottom: '1px solid rgba(0,0,0,0.5)' }}>
+        <img src={project.img} alt={project.title}/>
+      </CardMedia>
+      <CardTitle title={project.title} />
+      <CardText style={{ fontSize: '0.8em' }}>{project.text}</CardText>
+      <FlatButton label="Try it!" href={project.link} />
+    </Card>
+  )
+})
+
+const muiTheme = getMuiTheme({
+  userAgent: 'all',
+});
+
+const CardWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const Project = () => (
+  <MuiThemeProvider muiTheme={muiTheme}>
+    <CardWrapper>
+      {renderedProject}
+      <Footer />
+    </CardWrapper>
+  </MuiThemeProvider>
 )
 
-export default Projects;
+export default Project;
