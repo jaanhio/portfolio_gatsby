@@ -40,7 +40,6 @@ class IndexPage extends Component{
     return(
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
-          <Link to="/page-2/"><FileCloudDownload /></Link>
         </div>
       </MuiThemeProvider>
     );

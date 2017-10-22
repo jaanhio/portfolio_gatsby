@@ -11,6 +11,8 @@
     "gatsby-plugin-styled-components": "^1.0.5",
     "gatsby-plugin-typography": "^1.7.10",
     "material-ui": "^0.19.4",
+    "react-social-icons": "^2.7.0",
+    "react-social-share": "^0.0.6",
     "typography": "^0.16.6"
   },
   "keywords": [

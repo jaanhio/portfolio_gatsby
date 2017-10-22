@@ -6,6 +6,8 @@ import favicon from '../favicon.png';
 import styled from 'styled-components';
 import Header from './Header';
 
+// import Footer from './Footer';
+
 // import './index.css';
 
 const TemplateWrapper = ({ children }) => (
@@ -23,7 +25,7 @@ const TemplateWrapper = ({ children }) => (
     left: '50%',
     top: '50%',
     transform: 'translate(-50%, -50%)',
-    backgroundColor: 'pink'
+    // backgroundColor: 'pink'
    }}
     >
     <Helmet
@@ -35,7 +37,7 @@ const TemplateWrapper = ({ children }) => (
       ]}
       link={[
         {rel: 'icon', href: require('../favicon.png')},
-        {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Roboto|Shadows+Into+Light'},
+        {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Quattrocento+Sans|Roboto|Shadows+Into+Light'},
       ]}
     />
     <Header />
@@ -43,8 +45,11 @@ const TemplateWrapper = ({ children }) => (
       style={{
         margin: '0 auto',
         maxWidth: 960,
+        width: '95vw',
         padding: '0px 1.0875rem 1.45rem',
         paddingTop: 0,
+        position: 'absolute',
+        top: '470px',
       }}
     >
       {children()}
